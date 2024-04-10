@@ -20,7 +20,7 @@ const translations ={
     }
 }
 
-export function Home(){
+export default function Home(){
     return(
         <main className="flex flex-col h-screen overflow-hidden">
             <header className="flex flex-col justify-center content-center w-full h-60">
@@ -47,5 +47,3 @@ export function Home(){
        
     )
 }
-
-export default Home;
