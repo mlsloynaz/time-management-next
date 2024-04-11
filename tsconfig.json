@@ -21,6 +21,6 @@
       "@/ui/*": ["./app/ui/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/seed-data.js"],
   "exclude": ["node_modules"]
 }
