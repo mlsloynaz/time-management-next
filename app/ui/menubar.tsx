@@ -30,6 +30,7 @@ const translations = {
 // TODO: Create BreadCrumb
 // TODO: open menu by default in mobile or make the logo visible
 // TODO: Add selected state
+// TODO: set on menuItems selected and hover state
 
 export default function MenuBar() {
     const [menuOpen, setMenuOpen] = useState(false)
