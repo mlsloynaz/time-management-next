@@ -38,4 +38,16 @@ body {
     border-radius:theme(borderRadius.lg);
     box-shadow:theme(boxShadow.xl);
   }
+  .bgCover{
+    background-size: 100% 100%;
+  }
+  .buttonSelected {
+    background-color: theme(colors.slate.300)
+  } 
+  .buttonActive {
+    background-color: theme(colors.slate.200)
+  } 
+  .buttonHover {
+    background-color: theme(colors.slate.100)
+  } 
 }

@@ -1,4 +1,4 @@
-import MenuBar from "@/ui/menubar";
+import MenuBar from "@/ui/common/menubar";
 
 export default function LayoutWithMenu({
     children,
