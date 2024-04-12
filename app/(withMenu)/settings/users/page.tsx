@@ -1,8 +1,3 @@
-"use client"
-
-import { Navbar } from "flowbite-react";
-import Image from 'next/image';
-
 const translations = {
     pageTitle: "Manage users",
     userList: "User list"
@@ -23,8 +18,6 @@ export default function UsersSettings() {
                     <dd className="text-lg font-semibold">yourname@flowbite.com</dd>
                 </div>
             </dl>
-
-
         </div>
     )
 }
