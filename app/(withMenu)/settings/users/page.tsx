@@ -7,9 +7,6 @@ const translations = {
 
 export default async function UsersSettings() {
     const users = await fetchUsersSql();
-
-
-
     return (
         <div className="flex flex-col p-4">
             <h2>{translations.pageTitle}</h2>
