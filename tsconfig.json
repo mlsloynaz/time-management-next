@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/ui/*": ["./app/ui/*"],
-      "@/lib/data": ["./app/lib/data/*"],
+      "@/lib/data/": ["./app/lib/data/*"],
+      "@/lib/actions/*": ["./app/lib/actions/*"],
       "@/lib/*": ["./app/lib/*"]
     }
   },
