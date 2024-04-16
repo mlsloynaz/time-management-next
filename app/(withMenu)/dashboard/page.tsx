@@ -1,6 +1,11 @@
+import ContentPage from "@/ui/common/contentPage";
 
-export default function Dashboard(){
+export default function Dashboard() {
+    
     return (
-        <div>Dashboard Page</div>
+        <ContentPage title="Dashboard">
+           Some Content 
+        </ContentPage>
     )
+
 }

@@ -1,6 +1,10 @@
+import ContentPage from "@/ui/common/contentPage";
 
-export default function EventsSettings(){
+export default function EventsSettings() {
+    
     return (
-        <div>Events Page</div>
+        <ContentPage title="Events">
+            Some Content
+        </ContentPage>
     )
 }

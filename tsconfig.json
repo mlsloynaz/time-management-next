@@ -18,7 +18,10 @@
       }
     ],
     "paths": {
-      "@/ui/*": ["./app/ui/*"]
+      "@/ui/*": ["./app/ui/*"],
+      "@/lib/data/": ["./app/lib/data/*"],
+      "@/lib/actions/*": ["./app/lib/actions/*"],
+      "@/lib/*": ["./app/lib/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "scripts/seed-data.js"],
