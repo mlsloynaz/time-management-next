@@ -4,9 +4,11 @@ import Link from "next/link";
 import Image from 'next/image';
 import { useState } from "react";
 import { routeData } from "@/lib/route-data";
-import { MenuButtonImg } from "./menu-button";
 import { NavBar } from "./navbar";
 
+type MenuButtonProps = {
+    menuOpen: boolean;
+}
 
 const translations: Record<string, any> = {
     appTitle: "Time insights",
@@ -32,7 +34,6 @@ export default function MenuBar() {
     const mainRoutes = routeData.filter(route => route.active);
 
     return (
-        // <div className="z-10 flex gap-2 flex-col w-60 h-screen">
         <>
             <div className="flex items-center justify-center h-16 md:h-32 border-b-2  bg-[#E4E6F9] px-2 md:px-4">
                 <button aria-label={'translations.menuAria.open'} className="flex items-center justify-center h-12 w-12  py-2 border rounded text-[#0D0C55] border-[#0D0C55] hover:buttonHover" onClick={toggleMenu}>
@@ -44,9 +45,22 @@ export default function MenuBar() {
                     <NavBar routes={mainRoutes} />
                 </div>
             }
-        {/* </div> */}
         </>
     )
 }
 
 
+function MenuButtonImg({ menuOpen }: MenuButtonProps) {
+    return (<>
+        {!menuOpen &&
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+        }
+        {menuOpen &&
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        }
+    </>)
+} 
