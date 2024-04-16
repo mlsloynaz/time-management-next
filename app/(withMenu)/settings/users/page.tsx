@@ -1,3 +1,4 @@
+import { PageTitle } from "@/ui/common/pageTitle";
 import { UserList } from "@/ui/users/list";
 
 const translations = {
@@ -7,20 +8,13 @@ const translations = {
 }
 
 export default async function UsersSettings() {
- 
+
     return (
-        <div className="flex flex-col p-4">
-            <h2 className="text-3xl pb-16 flex justify-center md:text-6xl">{translations.pageTitle}</h2>
-            <div></div>
-            <div className="flex flex-col md:flex-row flex-1">
-                <div className="flex-col w-full md:w-[50%] justify-between pr-4">
-                    <UserList/>
-                </div>
+        <div className="flex flex-col">
+            <PageTitle title="Users settings" />
+            <div className="flex-1 flex  flex-col p-5 md:px-24">
+               <UserList />
             </div>
         </div>
     )
 }
-
-
-
-
