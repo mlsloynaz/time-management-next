@@ -16,16 +16,15 @@ const FormSchema = z.object({
   password:z.string()
 });
 
-export type State = {
+export type LoginState = {
   errors?: {
-    email?: string[];
     name?: string[];
     password?: string[];
   };
   message?: string | null;
 };
 
-export  async function createUser(prevState: State, formData: FormData) {
+export  async function createUser(prevState: LoginState, formData: FormData) {
       const validatedFields = FormSchema.safeParse({
         email: formData.get('email'),
         name: formData.get('name'),
@@ -60,4 +59,34 @@ export  async function createUser(prevState: State, formData: FormData) {
       revalidatePath('/settings/users');
       redirect('/settings/users');
    
+}
+
+
+export  async function loginUser(prevState: LoginState, formData: FormData) {
+  const validatedFields = FormSchema.safeParse({
+    email: formData.get('email'),
+    password: formData.get('password'),
+  })
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+      message: 'Missing Fields. Failed to Create Invoice.',
+    };
+  }
+
+  const { email, name, password } = validatedFields.data;
+  
+ try{
+
+ } catch(error){
+  console.log(error)
+  return {
+    message: 'Database Error: Failed to Create user.',
+  };
+ }
+ 
+  revalidatePath('/settings/users');
+  redirect('/settings/users');
+
 }

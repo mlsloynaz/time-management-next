@@ -8,15 +8,15 @@ interface TmButtonProps extends React.HTMLProps<HTMLButtonElement> {
     children?: ReactElement;
     className?: string;
     secondary?: boolean;
-
     dataTest?: string;
+    type?: "button" | "reset" | "submit"
 }
 
 export function TmButton(props: TmButtonProps) {
     const classButtonType = props.secondary ? 'bg-white' : '';
     const classDisabled = props.disabled ? 'disabled' : '';
 
-    function handleClick(event: never) {
+    function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
         if (!props.disabled && props.onClick) {
             props.onClick(event);
         }
@@ -27,11 +27,12 @@ export function TmButton(props: TmButtonProps) {
     return (
         <div data-test={props.dataTest} className={props.className}>
             <button
+                {...props}
                 onClick={handleClick}
-                type="button"
                 className={`${classDisabled} ${classButton} ${classButtonType}`}
                 aria-label={props.label}
                 disabled={props.disabled}
+                type={props.type || "button"} 
             >
                 {props.label && props.label.length > 0 ? <span className="text-xs md:text-sm">{props.label}</span> : null}
                 {props.children}
