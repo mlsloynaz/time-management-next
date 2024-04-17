@@ -3,7 +3,7 @@
 import { sql } from "@vercel/postgres";
 
 import { z } from "zod";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { v4 as uuidv4 } from 'uuid';
@@ -61,32 +61,3 @@ export  async function createUser(prevState: LoginState, formData: FormData) {
    
 }
 
-
-export  async function loginUser(prevState: LoginState, formData: FormData) {
-  const validatedFields = FormSchema.safeParse({
-    email: formData.get('email'),
-    password: formData.get('password'),
-  })
-
-  if (!validatedFields.success) {
-    return {
-      errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing Fields. Failed to Create Invoice.',
-    };
-  }
-
-  const { email, name, password } = validatedFields.data;
-  
- try{
-
- } catch(error){
-  console.log(error)
-  return {
-    message: 'Database Error: Failed to Create user.',
-  };
- }
- 
-  revalidatePath('/settings/users');
-  redirect('/settings/users');
-
-}

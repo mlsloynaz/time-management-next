@@ -8,8 +8,8 @@ type ContentPageProps = {
 export default function ContentPage({ title, children }: ContentPageProps) {
 
     return (
-        <div className="flex flex-col"><PageTitle title={title} />
-            <div className="flex-1 flex  flex-col p-5 md:px-24"> {children} </div>
+        <div className="flex h-screen flex-col"><PageTitle title={title} />
+            <div className="flex-1 flex flex-col p-5 md:px-24"> {children} </div>
         </div>
     )
 }
