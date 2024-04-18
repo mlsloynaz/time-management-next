@@ -3,7 +3,7 @@
 import { sql } from "@vercel/postgres";
 
 import { z } from "zod";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { v4 as uuidv4 } from 'uuid';
@@ -16,16 +16,15 @@ const FormSchema = z.object({
   password:z.string()
 });
 
-export type State = {
+export type LoginState = {
   errors?: {
-    email?: string[];
     name?: string[];
     password?: string[];
   };
   message?: string | null;
 };
 
-export  async function createUser(prevState: State, formData: FormData) {
+export  async function createUser(prevState: LoginState, formData: FormData) {
       const validatedFields = FormSchema.safeParse({
         email: formData.get('email'),
         name: formData.get('name'),
@@ -61,3 +60,4 @@ export  async function createUser(prevState: State, formData: FormData) {
       redirect('/settings/users');
    
 }
+
