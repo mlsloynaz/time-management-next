@@ -11,14 +11,10 @@ export default function LayoutWithMenu({
             <div className="flex h-screen overflow-hidden">
                 <div className="fixed">
                     <MenuBar />
-                    <nav>
-                        <Link href="/login">Open modal</Link>
-                    </nav>
                 </div>
                 <main className="flex-1">
                     {children}
                 </main>
-
             </div>
             <div>
                 {auth}
