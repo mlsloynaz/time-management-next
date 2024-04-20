@@ -1,8 +1,8 @@
 
 import { Thumbnail } from '@/ui/home/thumbnail';
 import Link from 'next/link';
-import Image from 'next/image'
-import { routeData } from './lib/route-data';
+import Image from 'next/image';
+import { mainRoutes, routeData } from './lib/route-data';
 
 const translations:Record<string, any> = {
     appTitle: "Time insights",
@@ -19,7 +19,7 @@ const translations:Record<string, any> = {
 
 
 export default function Home() {
-    const mainRoutes = routeData.filter(route => route.active && route.root);
+  
 
     return (
         <main className="flex flex-col h-screen overflow-hidden relative">
@@ -38,12 +38,6 @@ export default function Home() {
                             <Thumbnail src={icon} pageId={id} title={translations.routes[title]} description={translations.routes[description]} />
                         </Link>
                     ))}
-                    {/* <Link key={"reports"} href={'reports'}>
-                        <Thumbnail src="/reports.svg" pageId="reports" title={translations.reports.title} description={translations.reports.description} />
-                    </Link>
-                    <Link key={"settings"} href={'settings'}>
-                        <Thumbnail src="/settings.svg" pageId="settings" title={translations.settings.title} description={translations.settings.description} />
-                    </Link> */}
                 </div>
 
             </section>

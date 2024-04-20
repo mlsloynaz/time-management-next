@@ -1,10 +1,13 @@
 
+import ContentPage from "@/ui/common/contentPage";
 import { Form } from "@/ui/users/create-form";
 
 
 export default function CreateUser() {
 
     return (
-       <Form/>
+        <ContentPage title="Create User">
+            <Form />
+        </ContentPage>
     )
 }

@@ -1,6 +1,10 @@
+import ContentPage from "@/ui/common/contentPage";
 
-export default function Reports(){
+export default function Reports() {
+    
     return (
-        <div>Reports Page</div>
+        <ContentPage title="Reports">
+            Some Content
+        </ContentPage>
     )
 }

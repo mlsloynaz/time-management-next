@@ -32,3 +32,4 @@ export async function fetchUserSql(id: string){
          throw new Error('Failed to fetch users data.');
      }
 } 
+
