@@ -9,8 +9,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  auth
-}: Readonly<{ children: React.ReactNode; auth: React.ReactNode }>) {
+}: Readonly<{ children: React.ReactNode;}>) {
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`} >
