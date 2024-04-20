@@ -2,7 +2,7 @@
 import { Thumbnail } from '@/ui/home/thumbnail';
 import Link from 'next/link';
 import Image from 'next/image';
-import { routeData } from './lib/route-data';
+import { mainRoutes, routeData } from './lib/route-data';
 
 const translations:Record<string, any> = {
     appTitle: "Time insights",
@@ -19,7 +19,7 @@ const translations:Record<string, any> = {
 
 
 export default function Home() {
-    const mainRoutes = routeData.filter(route => route.active);
+  
 
     return (
         <main className="flex flex-col h-screen overflow-hidden relative">

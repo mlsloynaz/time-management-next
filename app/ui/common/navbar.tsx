@@ -11,18 +11,25 @@ type NavBarProps = {
 
 export function NavBar({ routes }: NavBarProps) {
     return (
-        <nav className="h-auto">
-            <HomeItem />
-            {routes.map((route) => {
-                return (
-                    <div key={route.path}>
-                        {route.children.length > 0 ? <SubMenu route={route} /> : <MenuItem route={route} />}
-                    </div>
-                )
-          })}
-        </nav >
-    )
+        <nav className="h-[calc(100vh-64px)] md:h-[calc(100vh-128px)] flex flex-col">
+            <div className="flex-1">
+                <HomeItem />
+                {routes.map((route) => {
+                    return (
+                        <div key={route.path}>
+                            <MenuItem route={route} />
+                        </div>
+                    )
+                })}
+            </div>
+
+            <div className="flex">
+                <ProfileItem />
+            </div>
+        </nav >  
+    )           
 }
+ 
 
 function MenuItem({ route }: { route: RouteData }) {
     const pathname = usePathname();
@@ -46,11 +53,20 @@ function HomeItem() {
     )
 }
 
-function SubMenu({ route }: { route: RouteData }) {
+function ProfileItem() {
     return (
-        <div className="p-0 md:p-4 pr-0">
-            <p className="hidden md:block">{'translations.routes[route.title'}</p>
-            <div>{route.children.map((route) => <MenuItem key={route.path} route={route} />)}</div>
-        </div>
+        <Link href={'/profile'} className="p-4 border-1 flex hover:buttonHover active:buttonActive">
+            <Image src="/profile.svg" width={32} height={32} alt={'translations.routes[route.title]'} />
+            <span className="hidden md:block flex-none ml-4 content-center">{'UserName'}</span>
+        </Link>
     )
-};
+}
+
+// function SubMenu({ route }: { route: RouteData }) {
+//     return (
+//         <div className="p-0 md:p-4 pr-0">
+//             <p className="hidden md:block">{'translations.routes[route.title'}</p>
+//             <div>{route.children.map((route) => <MenuItem key={route.path} route={route} />)}</div>
+//         </div>
+//     )
+// };
